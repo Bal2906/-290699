@@ -1,0 +1,254 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/* Reset de estilos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('../assets/images/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20vh;
+  background-color: #ffffff5f;
+  padding: 75px;
+  border-radius: 25px;
+  box-shadow: 0 0 100px rgb(233, 170, 230);
+  backdrop-filter: blur(10px);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+
+}
+
+.input-container.remember-forgot-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.remember-checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo personalizado para el checkbox */
+.remember-checkbox {
+  position: relative;
+  margin-right: 5px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff05;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Pseudo-elemento para mostrar una palomita cuando el checkbox está marcado */
+.remember-checkbox:checked::before {
+  content: '\2713'; /* Código de la palomita Unicode */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  color: #9916a0; /* Color de la palomita */
+}
+
+/* Estilo para el texto al lado del checkbox */
+.remember-text {
+  margin-left: 5px;
+}
+
+/* Estilos adicionales para mejorar la accesibilidad */
+.remember-checkbox:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Oculta el indicador de verificación predeterminado en algunos navegadores */
+.remember-checkbox::-webkit-check-mark {
+  display: none;
+}
+.remember-checkbox::-moz-check-mark {
+  display: none;
+}
+.remember-checkbox::-ms-check {
+  display: none;
+}
+
+
+.forgot-password-container {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.remember-forgot-container #forgotPassword {
+  font-size: 14px;
+  color: #9916a0;
+  text-decoration: none;
+}
+
+.remember-forgot-container #forgotPassword:hover {
+  text-decoration: underline;
+}
+
+
+input {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  background-color: #ffffff05;
+  backdrop-filter: blur(5px);
+}
+
+label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.4s ease;
+}
+
+input:focus+label,
+input:valid+label {
+  top: -10px;
+  font-size: 12px;
+  color: #444444;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.eye-icon i {
+  color: #444444;
+  font-size: 20px;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: .5s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.01);
+}
+
+/* Estilos para el enlace de registro */
+.container p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.container p a {
+  color: #9916a0;
+  text-decoration: none;
+}
+
+.container p a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para el modal de error de servidor */
+#serverErrorModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#serverErrorModal.hide {
+  animation: fadeOut 0.5s ease-in-out;
+}
+
+#serverErrorModal .modal-content {
+  align-items: center;
+  background-color: #fefefe;
+  text-align: center;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+#serverErrorModal .modal-content p {
+  position: relative;
+  padding-left: 30px;
+}
+
+#serverErrorModal .modal-content p i {
+  position: absolute;
+  left: 0;
+  color: #f44336;
+}
+
+/* Animación para la aparición del modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación para la desaparición del modal */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}

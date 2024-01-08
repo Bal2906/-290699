@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="../assets/icons/icon-profile.png">
+    <link rel="stylesheet" type="text/css" href="../css/style_home_page.css">
+
+    <!-- ICONS -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <title>Home | Page</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="sidebar active">
+            <div class="menu-btn">
+                <i class="ph-bold ph-caret-left"></i>
+            </div>
+
+            <div class="head">
+                <div class="user-img">
+                    <img src="#" alt="" draggable="false">
+                </div>
+
+                <div class="user-details">
+                    <p class="title">Status Connection</p>
+                    <p class="name">Name User firebase DB</p>
+                </div>
+            </div>
+
+            <div class="nav">
+                <div class="menu">
+                    <p class="title">Main</p>
+                    <ul>
+                        <li class="active" id="home-link">
+                            <a href="#" draggable="false">
+                                <i class="icon ph-bold ph-house-simple"></i>
+                                <span class="text">Home</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" draggable="false" id="profile-link">
+                                <i class="icon ph-bold ph-user"></i>
+                                <span class="text">Profile</span>
+                                <i class="arrow ph-bold ph-caret-down"></i>
+                            </a>
+
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="#" draggable="false" id="myProfile-link">
+                                        <i class="icon ph-fill ph-user icon-person"></i>
+                                        <span class="text">My Profile</span>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#" draggable="false" id="myFollowers-link">
+                                        <i class="icon ph-fill ph-users icon-users"></i>
+                                        <span class="text">Followers</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" draggable="false" id="myImages-link">
+                                        <i class="icon icon-photos ph-fill ph-images"></i>
+                                        <span class="text">Photos</span>
+                                    </a>
+                                </li>
+                                <!-- Agrega mas subclases -->
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#" draggable="false" id="posts-link">
+                                <i class="icon ph-bold ph-file-text"></i>
+                                <span class="text">Posts</span>
+                                <i class="arrow ph-bold ph-caret-down"></i>
+                            </a>
+
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="#" draggable="false" id="createPosts-link">
+                                        <i class="icon icon-createPost ph-fill ph-note-pencil"></i>
+                                        <span class="text">Create Post</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" draggable="false" id="myPosts-link">
+                                        <i class="icon icon-MyPosts ph-fill ph-note-blank"></i>
+                                        <span class="text">My Posts</span>
+                                    </a>
+                                </li>
+                                <!-- Agrega mas subclases -->
+                            </ul>
+                        </li>
+
+                        <!-- <li>
+                            <a href="#">
+                                <i class="icon ph-bold ph-calendar-blank"></i>
+                                <span class="text">Schedules</span>
+                            </a>
+                        </li> -->
+
+                        <li>
+                            <a href="#" draggable="false" id="categories-link">
+                                <i class="icon ph-bold ph-list"></i>
+                                <span class="text">Categories</span>
+                                <i class="arrow ph-bold ph-caret-down"></i>
+                            </a>
+
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="#" draggable="false" id="trendings-link">
+                                        <i class="icon icon-fire ph-fill ph-fire"></i>
+                                        <span class="text">Trendings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" draggable="false" id="mostPopular-link">
+                                        <i class="icon icon-star ph-fill ph-star"></i>
+                                        <span class="text">Most Popular</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" draggable="false" id="stories-link">
+                                        <i class="icon icon-book ph-fill ph-book"></i>
+                                        <span class="text">Stories</span>
+                                    </a>
+                                </li>
+                                <!-- Agrega mas subclases -->
+                            </ul>
+                        </li>
+                        <!-- Agrega mas clases -->
+                    </ul>
+                </div>
+
+                <div class="menu">
+                    <p class="title">Settings</p>
+                    <ul>
+                        <li>
+                            <a href="#" draggable="false" id="settings-link">
+                                <i class="icon ph-bold ph-gear"></i>
+                                <span class="text">Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="menu">
+                <p class="title">Account</p>
+                <ul>
+                    <li>
+                        <a href="#" draggable="false" id="help-link">
+                            <i class="icon ph-bold ph-info"></i>
+                            <span class="text">Help</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" id="logoutLink" draggable="false" id="logout-link">
+                            <i class="icon ph-bold ph-sign-out"></i>
+                            <span class="text">Logout</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contenedor de publicaciones -->
+        <div class="content-container">
+            <!-- Aquí se mostrarán las publicaciones -->
+            <div id="page-content">
+                <!-- El contenido específico de cada página se cargará aquí -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal de carga para creacion de posts -->
+    <div class="modalLoadingPostsCreation" id="postCreationModal">
+        <div class="modal-content-LoadingPostsCreation">
+            <div id="loadingSection">
+                <p>Estamos creando su post. Por favor, espere...</p>
+            </div>
+            <div id="uploadingSection" style="display:none;">
+                <p>Subiendo la información. Por favor, espere...</p>
+            </div>
+            <div id="successSection" style="display:none;">
+                <p>Post creado con éxito!</p>
+                <!-- Puedes agregar iconos o animaciones aquí -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal para comentarios -->
+    <div class="modalComents" id="commentsModal" data-post-id="">
+        <div class="modal-content-coment">
+            <h2>Comentarios</h2>
+            <textarea id="commentInput" placeholder="Escribe tu comentario..."></textarea>
+            <button id="postCommentBtn" class="publish-btn">Publicar comentario</button>
+            <div id="commentsSection">
+                <!-- Aquí se agregarán dinámicamente los comentarios -->
+            </div>
+            <button class="cancel-btnModal" id="closeCommentsModalBtn" onclick="closeCommentsModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal para editar el nombre de usuario -->
+    <div id="usernameModal" class="modalEdit">
+        <div class="modal-content-edit">
+            <label for="newUsername">Nuevo nombre de usuario:</label>
+            <input type="text" id="newUsername" />
+            <button id="updateDataUsername" class="accept-btnModal">Guardar cambios</button>
+            <button id="cancelUpdateUsername" class="cancel-btnModal">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal para editar la biografía -->
+    <div id="bioModal" class="modalEdit">
+        <div class="modal-content-edit">
+            <label for="newBio">Nueva biografía:</label>
+            <input type="text" id="newBio" />
+            <button id="updateDataBio" class="accept-btnModal">Guardar cambios</button>
+            <button id="cancelUpdateBio" class="cancel-btnModal">Cancelar</button>
+
+        </div>
+    </div>
+
+    <!-- Modal para mostrar imágenes cover -->
+    <div id="coverModalChange" class="coverModalChange">
+        <div class="coverModalChange-content">
+            <span id="closeCoverModalChange" class="closeCoverModalChange" onclick="closeModal()">&times;</span>
+
+            <!-- Contenido del modal -->
+            <div class="image-column" id="imageColumn1">
+                <!-- Columna 1 (se llenará dinámicamente) -->
+            </div>
+
+            <div class="image-column" id="imageColumn2">
+                <!-- Columna 2 (se llenará dinámicamente) -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para mostrar imágenes -->
+    <div id="myModalImagePost" class="modalImagePost">
+        <span class="closeModalImagePost">&times;</span>
+        <img class="modal-content-ImagePost" id="modalImagePost" draggable="false">
+    </div>
+
+    <!-- Modal de Confirmación Delete Account -->
+    <div id="deleteAccountModal" class="modal">
+        <div class="modal-content">
+            <!-- <span class="close" id="closeDeleteAccountModal">&times;</span> -->
+            <p>¿Estás seguro de que quieres eliminar tu cuenta?</p>
+            <button id="confirmDeleteAccountBtn" class="accept-btnModal">Sí, Eliminar</button>
+            <button id="cancelDeleteAccountBtn" class="cancel-btnModal">Cancelar</button>
+        </div>
+    </div>
+
+
+    <!-- Modal de Confirmación Close Account -->
+    <div class="modal" id="logoutModal">
+        <div class="modal-content">
+            <p>¿Estás seguro de cerrar sesión?</p>
+            <button class="accept-btnModal" id="confirmLogout">Sí, cerrar sesión</button>
+            <button class="cancel-btnModal" id="cancelLogout">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <script type="module" src="../js/script_home_page.js"></script>
+</body>
+
+</html>

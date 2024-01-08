@@ -1,0 +1,1685 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+
+/* ============================ Reset CSS ===================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-image: url('../assets/images/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+}
+
+/* ============================ SlideBar ===================================== */
+
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 256px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #ffffff5f;
+    padding: 24px;
+    margin-right: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 100px rgb(233, 170, 230);
+    backdrop-filter: blur(10px);
+    transition: all .3s ease;
+    z-index: 50;
+}
+
+.sidebar .head {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.user-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-img img {
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.user-img:hover {
+    transform: scale(1.03);
+}
+
+.user-details .title,
+.menu .title {
+    font-size: 10px;
+    font-weight: 500;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.user-details .name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.user-details .title {
+    padding: 5px;
+    margin-right: 25px;
+    border-radius: 15px;
+    font-weight: 600;
+    background-color: #f6f6f6a9;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.nav {
+    flex: 1;
+}
+
+.menu ul li {
+    position: relative;
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+.menu ul li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-style: 14px;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+    padding: 12px 8px;
+    border-radius: 8px;
+    transition: all .3s ease-in-out;
+}
+
+.menu ul li>a:hover,
+.menu ul li.active>a {
+    color: #b150c7;
+    background-color: #f6f6f6;
+    transform: scale(1.03);
+}
+
+.menu ul li .icon {
+    font-size: 20px;
+}
+
+.menu ul li .text {
+    flex: 1;
+}
+
+.menu ul li .arrow {
+    font-size: 14px;
+    transition: all .3s;
+}
+
+.menu ul li.active .arrow {
+    transform: rotate(180deg);
+}
+
+.menu .sub-menu {
+    display: none;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    border-left: 1px solid #f6f6f6;
+}
+
+.menu .sub-menu li a {
+    padding: 10px 8px;
+    font-size: 12px;
+}
+
+.menu:not(:last-child) {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f6f6f6;
+}
+
+.menu-btn {
+    position: absolute;
+    right: -14px;
+    top: 3.5%;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #000;
+    background-color: #ffffff5f;
+    backdrop-filter: blur(10px);
+}
+
+.menu-btn:hover {
+    background-color: #fff;
+}
+
+.menu-btn:hover i {
+    color: #b150c7;
+}
+
+.menu-btn i {
+    transition: all .3s ease;
+}
+
+.sidebar.active {
+    width: 92px;
+}
+
+.sidebar.active .menu-btn i {
+    transform: rotate(180deg);
+}
+
+.icon-fire {
+    color: #FF4500;
+}
+
+.icon-star {
+    color: #FFD700;
+}
+
+.icon-book {
+    color: #4682B4;
+}
+
+.icon-person {
+    color: #00BFFF;
+}
+
+.icon-users {
+    color: #008000;
+}
+
+.icon-photos{
+    color: #b479e4;
+}
+
+.icon-createPost {
+    color: #947f3c;
+}
+
+.icon-MyPosts {
+    color: #e79959;
+}
+
+.sidebar.active .user-details {
+    display: none;
+}
+
+.sidebar.active .menu .title {
+    text-align: center;
+}
+
+.sidebar.active .menu ul li .arrow {
+    display: none;
+}
+
+.sidebar.active .menu>ul>li>a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar.active .menu>ul>li>a .text {
+    position: absolute;
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+}
+
+.sidebar.active .menu>ul>li>a .text::after {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 20%;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    background-color: #000;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.sidebar.active .menu>ul>li>a:hover .text {
+    left: 50px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar.active .menu .sub-menu {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 200px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 1px solid #f6f6f6;
+    background-color: #ffffffcd;
+    box-shadow: 0 0 100px rgb(233, 170, 230);
+    backdrop-filter: blur(200px);
+}
+
+/* Estilos para las publicaciones */
+h2 {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.content-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 2;
+    min-width: 50px;
+    min-height: 50px;
+    margin-top: 15px;
+    margin-right: 15px;
+    padding: 20px;
+    background-color: #ffffff5f;
+    border-radius: 20px;
+    box-shadow: 0 0 100px rgb(233, 170, 230);
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    max-height: 715px;
+    scroll-behavior: smooth;
+}
+
+.content-container.loaded {
+    opacity: 1;
+}
+
+/* Estilos para la cuadrícula de publicaciones */
+#page-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ajusta según tus necesidades */
+    padding-bottom: 14px;
+}
+
+/* Estilos generales para los contenedores de publicaciones */
+.posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.post {
+    border-radius: 25px;
+    border: 1px solid #e6e6e6;
+    background-color: #ffffffac;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    padding: 10px;
+    flex-shrink: 0; /* Evita que los elementos se reduzcan */
+}
+
+/* Estilos para la información del usuario */
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.profile-user-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+    margin-right: 10px;
+    transition: .3s ease;
+}
+
+.profile-user-img:hover{
+    transform: scale(1.05);
+}
+
+.profile-user-img img {
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.user-info-details {
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.name-users {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+/* Estilos para el contenido de la publicación */
+.description-container,
+.post-content,
+.post-interactions {
+    padding: 10px;
+}
+
+.post-content {
+    padding: 10px;
+    max-height: 300px; /* Ajusta según tus necesidades */
+    overflow: hidden;
+}
+
+.publish-content {
+    max-width: 100%;
+    max-height: 100%; /* Esto mantiene la proporción de la imagen */
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Estilos para los iconos de interacciones */
+.left-icons {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.like-icon,
+.views-icon,
+.comment-icon {
+    font-size: 1.3em;
+    margin-right: 10px;
+    transition: .3s ease;
+}
+
+.count {
+    font-size: .7em;
+    margin-right: 10px;
+    color: #000;
+}
+
+.views-icon:hover{
+    color: #d286d4;
+}
+
+.comment-icon:hover{
+    color: #2680c2;
+}
+
+/* Estilos para el botón de "Me gusta" */
+.like-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.like-btn:hover {
+    color: #fb3e41;
+    transform: scale(1.1);
+    background-color: transparent;
+}
+
+/* Estilo para el botón de "like" no clicado */
+.like-btn {
+    color: #000; /* Cambia el color según tus preferencias */
+    transition: color 0.3s ease;
+}
+
+/* Estilo para el botón de "like" clicado */
+.like-btn.liked {
+    color: #fb3e41; /* Cambia el color según tus preferencias */
+}
+
+.like-btn i {
+    font-size: 1.3em;
+    margin-right: 5px;
+}
+
+/* Estilos adicionales para el contador de "Me gusta" */
+.like-btn .count {
+    font-size: .9em;
+    margin-right: 10px;
+    color: #000;
+}
+
+/* Estilos para la fecha del post */
+.post-date {
+    margin-top: 10px;
+    color: #555; /* Color modificado para resaltar menos la fecha */
+    font-size: 12px;
+}
+
+/* Estilos para el botón de suscripción y el botón de mostrar comentarios */
+.subscribe-btn,
+.modalComentsbtn {
+    background-color: #3897f0;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.subscribe-btn:hover,
+.modalComentsbtn:hover {
+    background-color: #2680c2;
+}
+
+.comment-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* ===========================Estilos para My Profile====================================== */
+/* Estilos para My Profile */
+
+/* Contenedor de la sección My Profile */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen de portada */
+.cover-image {
+    width: 100%;
+    max-height: 200px; /* Ajusta según tus necesidades */
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.cover-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estilos para el botón de cambiar portada */
+.change-cover-button {
+    position: absolute; /* Posición absoluta para superponer el botón */
+    top: 223px; /* Ajusta la posición vertical según tus necesidades */
+    right: 40px; /* Ajusta la posición horizontal según tus necesidades */
+    background-color: #3498db; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 10px 15px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    font-size: 14px; /* Tamaño del texto */
+}
+
+/* Efecto de cambio de color al pasar el mouse sobre el botón */
+.change-cover-button:hover {
+    background-color: #2980b9; /* Nuevo color de fondo al pasar el mouse */
+}
+
+
+/* Imagen de perfil y detalles del usuario */
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.profile-user-myperfil-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-user-myperfil-img img {
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.profile-user-details {
+    text-align: center;
+}
+
+.profile-username {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profile-bio {
+    font-size: 16px;
+    color: #666;
+}
+
+.icon-bio,
+.icon-username {
+    color: #000;
+    margin-left: 10px; /* Espaciado entre el ícono y el texto */
+    cursor: pointer;
+    transition: transform .3s ease; 
+}
+
+.icon-bio:hover,
+.icon-username:hover {
+    color: #2680c2;
+}
+
+/* Estilos para los nuevos botones */
+.subscribe-button,
+.like-button {
+    background-color: #3498db; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 10px 15px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    margin-top: 10px; /* Espaciado superior */
+    font-size: 14px; /* Tamaño del texto */
+    transition: all .3s ease;
+}
+
+/* Estilos para el botón de Me gusta con el ícono de corazón */
+.like-button i,
+.subscribe-button i,
+.change-cover-button i {
+    font-size: 15px;
+    margin-right: 5px; /* Espaciado entre el ícono y el texto */
+}
+
+/* Efecto de cambio de color al pasar el mouse sobre los botones */
+.subscribe-button:hover,
+.like-button:hover {
+    background-color: #2980b9; /* Nuevo color de fondo al pasar el mouse */
+    transform: scale(1.05);
+}
+
+/* Estilos para el contenedor de las secciones en fila */
+.profile-section-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 8px;
+}
+
+/* Estilos generales para las cajas */
+.profile-section,
+.followers-section,
+.following-section,
+.totalLikes-section,
+.totalPosts-section,
+.totalStories-section,
+.totalTime-section {
+    width: 250px; /* Ancho ajustado */
+    padding: 20px;
+    margin: 20px; /* Mayor margen para separación */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombras ajustadas */
+}
+
+/* Estilos para los detalles del perfil dentro de la caja */
+.profile-details {
+    margin-top: 15px; /* Separación superior para los detalles del perfil */
+}
+
+/* Estilos para las etiquetas de nombre, correo y estado de conexión */
+.profile-details label {
+    display: block; /* Hacer que las etiquetas se muestren en una línea */
+    margin-bottom: 5px; /* Espaciado inferior entre las etiquetas y los valores */
+}
+
+/* Estilos para los valores de nombre, correo y estado de conexión */
+.profile-details span {
+    display: block; /* Hacer que los valores se muestren en una línea */
+    font-weight: bold; /* Hacer que los valores sean negrita */
+    margin-bottom: 10px; /* Espaciado inferior entre los valores */
+}
+
+
+/* Estilos para los iconos */
+.profile-section i,
+.followers-section i,
+.following-section i,
+.totalLikes-section i,
+.totalPosts-section i,
+.totalStories-section i,
+.totalTime-section i {
+    font-size: 60px; /* Tamaño de icono aumentado */
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+/* Efecto de elevación al pasar el mouse sobre las cajas */
+.profile-section:hover,
+.followers-section:hover,
+.following-section:hover,
+.totalLikes-section:hover,
+.totalPosts-section:hover,
+.totalStories-section:hover,
+.totalTime-section:hover {
+    background-color: #f6f6f6;
+    transform: translateY(-8px); /* Ajuste en la elevación */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Cambio de color de los iconos al pasar el mouse sobre las cajas */
+.profile-section:hover i {
+    color: #b150c7;
+}
+
+.followers-section:hover i {
+    color: #00BFFF;
+}
+
+.following-section:hover i {
+    color: #eb8e58;
+}
+
+.totalLikes-section:hover i {
+    color: #fb3e41;
+}
+
+.totalPosts-section:hover i {
+    color: #383382;
+}
+
+.totalStories-section:hover i {
+    color: #94246d;
+}
+
+.totalTime-section:hover i {
+    color: #3d6e05;
+}
+
+/* Estilos para el texto en las cajas */
+.profile-section p,
+.followers-section p,
+.following-section p,
+.totalLikes-section p,
+.totalPosts-section p,
+.totalStories-section p,
+.totalTime-section p {
+    font-size: 16px; /* Tamaño de texto aumentado */
+    margin-top: 12px; /* Mayor espacio superior */
+    color: #555;
+}
+
+/* Estilos para los contadores */
+.profile-section .counter,
+.followers-section .counter,
+.following-section .counter,
+.totalLikes-section .counter,
+.totalPosts-section .counter,
+.totalStories-section .counter,
+.totalTime-section .counter {
+    font-weight: bold;
+    color: #333;
+    font-size: 60px; /* Tamaño de contador aumentado */
+    margin-top: 10px; /* Mayor espacio superior */
+}
+
+/* Restablecer estilos para la cuadrícula de publicaciones en la pestaña myProfile */
+#page-content {
+    max-width: 1600px; /* Ajusta el valor según sea necesario */
+    margin: 20px auto; /* Centrar el contenedor */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ajusta según tus necesidades */
+    padding-bottom: 14px;
+}
+
+/* ============================= Estilos para la seccion de imagenes ==================================== */
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 150px;
+    padding: 20px;
+    grid-gap: 10px;
+}
+
+.gallery-item {
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+
+.gallery-item:hover {
+    transform: scale(1.012);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    filter: grayscale(20%);
+    transition: filter 0.3s ease-in-out;
+}
+
+.gallery-item:hover .gallery-img {
+    filter: grayscale(0%);
+}
+
+.gallery-title {
+    font-size: .80em;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    background: linear-gradient(rgba(255,255,255,0),rgba(0,0,0,1));
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+}
+
+.gallery-item:nth-child(3),
+.gallery-item:nth-child(9),
+.gallery-item:nth-child(13),
+.gallery-item:nth-child(18) {
+    grid-column-start: span 2;
+}
+
+.gallery-item:nth-child(5),
+.gallery-item:nth-child(10),
+.gallery-item:nth-child(15),
+.gallery-item:nth-child(21) {
+    grid-row-start: span 2;
+}
+
+/* ================================================================= */
+
+/* Estilos generales para la página de configuración */
+#settings-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: calc(100% - 40px);
+    gap: 25px;
+}
+
+.update-info-section,
+.change-password-section,
+.profile-image-section,
+.delete-account-section {
+    flex-basis: 48%;
+    background-color: #ffffff5f;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgb(233, 170, 230);
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Agregado espacio entre las secciones */
+}
+
+h3 {
+    color: #000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 8px;
+    color: #000;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.preview-container{
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.image-preview {
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.save-btn,
+.cancel-btn,
+.delete-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.save-btn {
+    background-color: #b150c7;
+    color: #fff;
+    transition: .3s ease;
+}
+
+.save-btn:hover{
+    background-color: #6a2779;
+    transform: scale(1.03);
+}
+
+.cancel-btn,
+.delete-btn {
+    background-color: #ff5252;
+    color: #fff;
+    transition: .3s ease;
+}
+
+.cancel-btn:hover,
+.delete-btn:hover {
+    background-color: #b83939;
+    transform: scale(1.03);
+}
+
+.save-info-btn,
+.cancel-info-btn,
+.save-password-btn,
+.cancel-password-btn,
+.save-profile-image-btn,
+.cancel-profile-image-btn,
+.delete-btn {
+    margin-top: 20px;
+}
+
+/* Estilos para el modal de Coments */
+.modalComents {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 60;
+}
+
+.modal-content-coment{
+    position: absolute;
+    width: 100%;
+    max-width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    backdrop-filter: blur(200px);
+    z-index: 60;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+#postCommentBtn {
+    background-color: #3897f0;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#postCommentBtn:hover {
+    background-color: #2680c2;
+}
+
+#commentsSection {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Estilos para cada comentario individual */
+.comment {
+    margin-top: 15px;
+}
+
+.comment .user-avatar {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.comment .user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment .comment-content {
+    display: inline-block;
+}
+
+.comment .comment-content .user-name {
+    font-weight: bold;
+}
+
+.cancel-btnModal {
+    background-color: #ccc;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+.cancel-btnModal:hover {
+    background-color: #999;
+}
+
+
+/* Estilos generales para los modales */
+.modalEdit {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 60;
+}
+
+.modal-content-edit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Estilos para el input y el botón en el contenido del modal */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Agregar una animación de entrada para el modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Aplicar la animación al modal */
+.modalEdit {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Estilos generales para el modal */
+.coverModalChange {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 60;
+    overflow-y: auto; /* Añadir scroll vertical */
+}
+
+.coverModalChange-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    padding-top: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 90%;
+    max-height: 80vh; /* Altura máxima del modal en el 80% del viewport height */
+    overflow-y: auto; /* Añadir scroll interno */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.closeCoverModalChange {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Estilos específicos para las imágenes */
+.image-column {
+    width: 48%;
+    margin: 1%;
+}
+
+.image-item {
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.image-item img {
+    width: 100%;
+    max-width: 100%; /* Asegurar que la imagen no exceda el ancho de su contenedor */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    box-sizing: border-box; /* Considerar relleno y borde en el tamaño total */
+}
+
+.image-item img:hover {
+    transform: scale(1.05);
+}
+
+/* ========================= Create post ======================================== */
+.createPost-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.custom-create-post-form {
+    box-sizing: border-box;
+    max-width: 430px;
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    background-color: #ffffffac;
+    border-radius: 25px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.custom-post-status-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.publish-btn-container {
+    text-align: center;
+}
+
+.custom-post-status-input {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Estilo para el contenedor personalizado del botón de selección de archivo */
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: #3498db;
+    text-align: center;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Cambia el color del fondo cuando se pasa el ratón sobre el botón */
+.custom-file-upload:hover {
+    background-color: #2980b9;
+}
+
+/* Oculta el input de tipo file original */
+.custom-file-upload input {
+    display: none;
+}
+
+/* Estilo para el contenedor de previsualización de la imagen */
+.imagePreviewContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Ajusta la altura según sea necesario */
+    border: 1px solid #ccc; /* Agrega un borde al contenedor para mayor claridad */
+    border-radius: 5px;
+    overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga del contenedor */
+    margin-bottom: 10px;
+}
+
+/* Estilo para la previsualización de la imagen */
+.preview-image {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    display: block; /* Asegura que la imagen no tenga márgenes blancos en la parte inferior */
+    margin: 0 auto; /* Centra horizontalmente la imagen dentro del contenedor */
+}
+
+.custom-publish-btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.custom-publish-btn:hover {
+    background-color: #2980b9;
+}
+
+/* ======================= Modal Imagenes pantalla completa =================================== */
+.modalImagePost {
+    display: none;
+    position: fixed;
+    z-index: 65;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content-ImagePost {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain; /* O utiliza 'cover' según tus preferencias */
+}
+
+.closeModalImagePost {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ======================= Modal carga completa =================================== */
+
+/* Estilos modal de carga de creación de posts */
+.modalLoadingPostsCreation {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+/* Estilos para las secciones del modal */
+.modal-content-LoadingPostsCreation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+}
+
+#loadingSection,
+#uploadingSection,
+#successSection,
+#errorSection {
+    display: none;
+}
+
+#loadingSection p,
+#uploadingSection p,
+#successSection p,
+#errorSection p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilos para la sección de éxito */
+#successSection {
+    color: #28a745; /* Verde */
+}
+
+/* Estilos para la sección de error */
+#errorSection {
+    color: #dc3545; /* Rojo */
+}
+
+/* Estilos para animación del modal */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Aplicar la animación al modal */
+.modal-content-LoadingPostsCreation {
+    animation: fadeInOut 3s ease-in-out;
+}
+
+/* ======================= Modal Logout =================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 60;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff6f;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 100px rgb(233, 170, 230);
+    backdrop-filter: blur(200px);
+}
+
+.modal p {
+    margin-bottom: 20px;
+}
+
+.modal button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.accept-btnModal,
+.cancel-btnModal {
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.accept-btnModal {
+    background-color: #4CAF50;
+}
+
+.accept-btnModal:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.cancel-btnModal {
+    background-color: #FF0000;
+}
+
+.cancel-btnModal:hover {
+    background-color: #a30000;
+    transform: scale(1.05);
+}
+
+/* ======================= Scroll personalizado para el contenedor padre dinamico =================================== */
+.content-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content-container::-webkit-scrollbar-track {
+    background-color: transparent;
+    /* Color del fondo de la barra de desplazamiento */
+}
+
+.content-container::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    /* Color del "pulgar" de la barra de desplazamiento */
+    border-radius: 25px;
+    /* Bordes redondeados del "pulgar" */
+    border: 1px solid transparent;
+    /* Borde transparente alrededor del "pulgar" */
+    transition: background-color 0.3s ease-in-out;
+    /* Transición al pasar el ratón sobre la barra */
+}
+
+.content-container:hover::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    /* Color del "pulgar" cuando el ratón está sobre la barra de desplazamiento */
+}
+
+.content-container::-webkit-scrollbar-thumb:hover {
+    background-color: #595959;
+    /* Color del "pulgar" cuando se pasa el ratón sobre él */
+}
+
+/* Estilos adicionales para el botón de la barra de desplazamiento (flechas de desplazamiento) */
+.content-container::-webkit-scrollbar-button {
+    display: none;
+    /* Ocultar el botón de la barra de desplazamiento */
+}
+
+/* Estilos para las esquinas de la barra de desplazamiento */
+.content-container::-webkit-scrollbar-corner {
+    background-color: transparent;
+    /* Color de las esquinas */
+}
+
+/* ======================= Scroll personalizado para modal de comentarios =================================== */
+#commentsModal .modal-content-coment #commentsSection::-webkit-scrollbar {
+    width: 8px;
+}
+
+#commentsModal .modal-content-coment #commentsSection::-webkit-scrollbar-track {
+    background-color: transparent;
+    /* Color del fondo de la barra de desplazamiento */
+}
+
+#commentsModal .modal-content-coment #commentsSection::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    /* Color del "pulgar" de la barra de desplazamiento */
+    border-radius: 25px;
+    /* Bordes redondeados del "pulgar" */
+    border: 1px solid transparent;
+    /* Borde transparente alrededor del "pulgar" */
+    transition: background-color 0.3s ease-in-out;
+    /* Transición al pasar el ratón sobre la barra */
+}
+
+#commentsModal .modal-content-coment #commentsSection:hover::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    /* Color del "pulgar" cuando el ratón está sobre la barra de desplazamiento */
+}
+
+#commentsModal .modal-content-coment #commentsSection::-webkit-scrollbar-thumb:hover {
+    background-color: #595959;
+    /* Color del "pulgar" cuando se pasa el ratón sobre él */
+}
+
+/* Estilos adicionales para el botón de la barra de desplazamiento (flechas de desplazamiento) */
+#commentsModal .modal-content-coment #commentsSection::-webkit-scrollbar-button {
+    display: none;
+    /* Ocultar el botón de la barra de desplazamiento */
+}
+
+/* Estilos para las esquinas de la barra de desplazamiento */
+#commentsModal .modal-content-coment #commentsSection::-webkit-scrollbar-corner {
+    background-color: transparent;
+    /* Color de las esquinas */
+}
+
+/* ======================= Scroll personalizado para el modal Cover Change =================================== */
+.coverModalChange-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.coverModalChange-content::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.coverModalChange-content::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 25px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.coverModalChange-content:hover::-webkit-scrollbar-thumb {
+    background-color: #808080;
+}
+
+.coverModalChange-content::-webkit-scrollbar-thumb:hover {
+    background-color: #595959;
+}
+
+.coverModalChange-content::-webkit-scrollbar-button {
+    display: none;
+}
+
+.coverModalChange-content::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+/* Media queries para diseño responsive */
+@media screen and (max-width: 768px) {
+
+    .custom-create-post-form {
+        max-width: 100%; /* Hacer que el formulario ocupe el ancho completo */
+    }
+
+    .custom-post-status-input,
+    .custom-file-upload,
+    .custom-publish-btn {
+        width: 100%;
+    }
+
+    .createPost-container {
+        margin: 20px 0; /* Agrega un margen superior e inferior para separar del contenido de la página */
+    }
+
+    .posts-container,
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        transition: width 0.3s ease;
+    }
+
+    .post {
+        width: calc(100% - 20px);
+        margin-bottom: 15px;
+        transition: width 0.3s ease; /* Transición suave para cambiar el ancho */
+    }
+
+    #settings-container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .update-info-section,
+    .change-password-section,
+    .profile-image-section,
+    .delete-account-section {
+        width: 100%;
+        max-width: none;
+        margin-right: 0;
+        transition: width 0.3s ease;
+    }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1058px) {
+    .post {
+        width: calc(50% - 20px);
+        transition: width 0.3s ease; /* Transición suave para cambiar el ancho */
+    }
+
+    #settings-container {
+        margin: 0 20px; /* Ajusta el margen según tus necesidades cuando el ancho de la pantalla es menor a 1141 pixels */
+        width: calc(100% - 40px); /* Considera el margen en el ancho total */
+        transition: width 0.3s ease;
+    }
+
+    .gallery-container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery-item:nth-child(3) {
+        grid-column-start: span 2;
+    }
+
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(9) {
+        grid-column-start: span 3;
+    }
+    
+    .gallery-item:nth-child(5) {
+        grid-row-start: span 3;
+    }
+    
+}
+
+@media (min-width:1024px){
+    .gallery-container{
+        grid-template-columns: repeat(5, 1fr);
+        width: 90%;
+        margin: auto;
+    }
+
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(5),
+    .gallery-item:nth-child(17),
+    .gallery-item:nth-child(21) {
+        grid-column-start: span 2;
+        grid-row-start: span 2;
+    }
+
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(8),
+    .gallery-item:nth-child(13),
+    .gallery-item:nth-child(18) {
+        grid-column-start: span 3;
+        grid-row-start: span 3;
+    }
+}
